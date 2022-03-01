@@ -6,14 +6,22 @@ const searchResult = () => {
     fetch(url)
         .then(response => response.json())
         .then(data => displayResult(data.data));
-    document.getElementById('header').innerHTML = '';
-    const main = document.getElementById("main");
-    main.classList.add("search-div2");
-    const secondSearch = document.getElementById('second-search');
-    secondSearch.classList.remove("d-none");
-    secondSearch.classList.add("search-div2");
-    document.getElementById('second-search-input').value = `${searchInput}`;
-
+    const spinner = document.getElementById('spinner');
+    spinner.classList.remove("d-none");
+    spinner.classList.add("d-block");
+    document.getElementById('main-logo').remove();
+    document.getElementById('input-box').remove();
+    setTimeout(() => {
+        spinner.classList.remove("d-block");
+        spinner.classList.add("d-none");
+        const main = document.getElementById("main");
+        main.classList.add("search-div2");
+        const secondSearch = document.getElementById('second-search');
+        secondSearch.classList.remove("d-none");
+        secondSearch.classList.add("search-div2");
+        document.getElementById('second-search-input').value = `${searchInput}`;
+        document.getElementById('header').innerHTML = '';
+        }, 1000);
 }
 
 
@@ -31,7 +39,7 @@ const secondSearchResult = () => {
     document.getElementById('header').innerHTML = '';
     const main = document.getElementById("main");
     main.classList.add("search-div2");
-    document.getElementById('card-clear').innerHTML = '';
+    // document.getElementById('card-clear').innerHTML = '';
     document.getElementById('card-info').innerHTML = '';
 
 }
@@ -96,6 +104,8 @@ const showMore = () => {
         .then(response => response.json())
         .then(data => displayMoreResult(data.data));
 }
+
+// Callback Function for showing more data
 
 const displayMoreResult = (data) => {
      const cardGrid = document.getElementById('card-grid');

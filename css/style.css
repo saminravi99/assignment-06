@@ -1,6 +1,7 @@
 .body{
     background-color: rgb(252, 237, 206);
     color: rgba(63, 48, 48, 0.993);
+    overflow-x: hidden;
 }
 .search-div{
     height: 100vh;
