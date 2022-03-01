@@ -17,6 +17,8 @@ const displayResult = (data) => {
     
     const cardGrid = document.getElementById('card-grid');
     cardGrid.innerHTML = '';
+    const main = document.getElementById('main');
+    main.classList.remove("d-none");
     for(const phone of data) {
         console.log(phone);
         const card = document.createElement('div');
@@ -56,6 +58,7 @@ const secondSearchResult = () => {
 }
 
 const displayDetails = (slug) => {
+    console.log(slug);
     const url = `https://openapi.programming-hero.com/api/phone/${slug}`;
     fetch(url)
         .then(response => response.json())
@@ -69,13 +72,15 @@ const displayDetailResult = (data) => {
     cardInfo.classList.add("card-info");
 
     const card = document.createElement('div');
-    card.classList.add("inner-card");
+    card.classList.add("row");
     card.setAttribute('id', 'card-clear'); 
+
+
     card.innerHTML = `
-             <div class="left col-lg-6 col-12 d-flex justify-content-center ">
-                <img class="detail-image " src="${data.image}" alt="">
+             <div class="left col-lg-6 col-12 d-flex justify-content-center">
+                <img src="${data.image}" alt="">
             </div>
-            <div class="right col-lg-6 col-12">
+            <div class="right col-lg-6 col-12  mt-lg-0 mt-4">
                 <h1 id="phone-name">${data.name}</h1>
                 <h5 id="release-date">${data.releaseDate}</h5>
                 
@@ -84,7 +89,9 @@ const displayDetailResult = (data) => {
                     <p class="mt-3">Storage : ${data.mainFeatures.storage}</p>
                     <p>Display : ${data.mainFeatures.displaySize}</p>
                     <p>Processor : ${data.mainFeatures.chipSet}</p>
-                    <p>RAM : ${data.mainFeatures.memory}</p>                    
+                    <p>RAM : ${data.mainFeatures.memory}</p>  
+                    <p>Sensors : ${data.mainFeatures.sensors.join(', ')}</p>                                       
+                                                           
                 </div>
                 <div class="mt-5">
                     <h4>Others: </h4>
@@ -97,6 +104,9 @@ const displayDetailResult = (data) => {
                 </div>
             </div>
                     `;
+           
     cardInfo.appendChild(card);
-    console.log(data);
+
+
+    
 }
