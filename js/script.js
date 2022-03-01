@@ -19,8 +19,14 @@ const displayResult = (data) => {
     cardGrid.innerHTML = '';
     const main = document.getElementById('main');
     main.classList.remove("d-none");
+    const myArray = [];
+
     for(const phone of data) {
-        console.log(phone);
+        myArray.push(phone);
+    }
+    const myArray2 = myArray.slice(0,20);
+
+    for(const phone of myArray2) {
         const card = document.createElement('div');
         card.innerHTML = `
           <div class="col container mx-auto">
@@ -60,7 +66,6 @@ const secondSearchResult = () => {
 }
 
 const displayDetails = (slug) => {
-    console.log(slug);
     const url = `https://openapi.programming-hero.com/api/phone/${slug}`;
     fetch(url)
         .then(response => response.json())
@@ -110,7 +115,6 @@ const displayDetailResult = (data) => {
     cardInfo.appendChild(card);
     const releaseDate = `${data.releaseDate}`;
     const other = `${data.others}`
-    console.log(other); 
     if(releaseDate.length === 0) {
         document.getElementById('release-date').innerText = 'Release date not available';
     }else{
@@ -119,7 +123,6 @@ const displayDetailResult = (data) => {
 
 
     if(other === "undefined") {
-        
         document.getElementById('Others').innerText = '';
         document.getElementById('WLAN').innerText = '';
         document.getElementById('Bluetooth').innerText = '';
