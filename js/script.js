@@ -84,7 +84,7 @@ const displayDetailResult = (data) => {
             </div>
             <div class="right col-lg-6 col-12  mt-lg-0 mt-4">
                 <h1 id="phone-name">${data.name}</h1>
-                <h5 id="release-date">${data.releaseDate}</h5>
+                <h5 id="release-date"></h5>
                 
                 <div class="mt-5">
                     <h4>Main Features: </h4>
@@ -96,19 +96,44 @@ const displayDetailResult = (data) => {
                                                            
                 </div>
                 <div class="mt-5">
-                    <h4>Others: </h4>
-                    <p class="mt-3">WLAN : ${data.others.WLAN}</p>
-                    <p>Bluetooth : ${data.others.Bluetooth}</p>
-                    <p>GPS : ${data.others.GPS}</p>
-                    <p>NFC : ${data.others.NFC}</p>                    
-                    <p>Radio : ${data.others.Radio}</p>                    
-                    <p>USB : ${data.others.USB}</p>                    
+                    <h4 id="Others"></h4>
+                    <p class="mt-3" id="WLAN"></p>
+                    <p id="Bluetooth"></p>
+                    <p id="GPS"></p>
+                    <p id="NFC"></p>                    
+                    <p id="Radio"></p>                    
+                    <p id="USB"></p>                    
                 </div>
             </div>
                     `;
            
     cardInfo.appendChild(card);
+    const releaseDate = `${data.releaseDate}`;
+    const other = `${data.others}`
+    console.log(other); 
+    if(releaseDate.length === 0) {
+        document.getElementById('release-date').innerText = 'Release date not available';
+    }else{
+        document.getElementById('release-date').innerText = `Release date : ${data.releaseDate}`;
+    }
 
 
-    
+    if(other === "undefined") {
+        
+        document.getElementById('Others').innerText = '';
+        document.getElementById('WLAN').innerText = '';
+        document.getElementById('Bluetooth').innerText = '';
+        document.getElementById('GPS').innerText = '';
+        document.getElementById('NFC').innerText = '';
+        document.getElementById('Radio').innerText = '';
+        document.getElementById('USB').innerText = '';
+    }else{
+        document.getElementById('Others').innerText = 'Others :';
+        document.getElementById('WLAN').innerText = `WLAN : ${data.others.WLAN}`;
+        document.getElementById('Bluetooth').innerText = `Bluetooth : ${data.others.Bluetooth}`;
+        document.getElementById('GPS').innerText = `GPS : ${data.others.GPS}`;
+        document.getElementById('NFC').innerText = `NFC : ${data.others.NFC}`;
+        document.getElementById('Radio').innerText = `Radio : ${data.others.Radio}`;
+        document.getElementById('USB').innerText = `USB : ${data.others.USB}`;
+}
 }

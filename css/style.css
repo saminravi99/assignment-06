@@ -31,7 +31,7 @@
 }
 
 .card-info{
-    height: auto;
+    min-height: 80vh;
     background-color: rgb(252, 237, 206);
     display: flex;
     justify-content: center;
