@@ -50,8 +50,9 @@ const secondSearchResult = () => {
     document.getElementById('header').innerHTML = '';
     const main = document.getElementById("main");
     main.classList.add("search-div2");
-    
-   
+    document.getElementById('card-clear').innerHTML = '';
+    document.getElementById('card-info').innerHTML = '';
+
 }
 
 const displayDetails = (slug) => {
@@ -64,19 +65,38 @@ const displayDetails = (slug) => {
 const displayDetailResult = (data) => {
      const cardGrid = document.getElementById('card-grid');
     cardGrid.innerHTML = '';
-    const main = document.getElementById('main');
+    const cardInfo = document.getElementById('card-info');
+    cardInfo.classList.add("card-info");
 
     const card = document.createElement('div');
-    card.setAttribute('id', 'card-detail'); 
+    card.classList.add("inner-card");
+    card.setAttribute('id', 'card-clear'); 
     card.innerHTML = `
-        <div class="col container mx-auto">
-            <div class="card ">
-                <div class="card-body  d-flex flex-column align-items-center justify-content-center border-0 ">
-                    <img src="${data.image}" class="card-img-top w-25" alt="...">
-                    <h4 class="card-title mt-3 d-flex align-items-center ">${data.name}</h4>
-                    <p class="card-text">${data.mainFeatures.storage}</p>
+             <div class="left col-lg-6 col-12 d-flex justify-content-center ">
+                <img class="detail-image " src="${data.image}" alt="">
+            </div>
+            <div class="right col-lg-6 col-12">
+                <h1 id="phone-name">${data.name}</h1>
+                <h5 id="release-date">${data.releaseDate}</h5>
+                
+                <div class="mt-5">
+                    <h4>Main Features: </h4>
+                    <p class="mt-3">Storage : ${data.mainFeatures.storage}</p>
+                    <p>Display : ${data.mainFeatures.displaySize}</p>
+                    <p>Processor : ${data.mainFeatures.chipSet}</p>
+                    <p>RAM : ${data.mainFeatures.memory}</p>                    
+                </div>
+                <div class="mt-5">
+                    <h4>Others: </h4>
+                    <p class="mt-3">WLAN : ${data.others.WLAN}</p>
+                    <p>Bluetooth : ${data.others.Bluetooth}</p>
+                    <p>GPS : ${data.others.GPS}</p>
+                    <p>NFC : ${data.others.NFC}</p>                    
+                    <p>Radio : ${data.others.Radio}</p>                    
+                    <p>USB : ${data.others.USB}</p>                    
                 </div>
             </div>
                     `;
-    main.appendChild(card);
+    cardInfo.appendChild(card);
+    console.log(data);
 }

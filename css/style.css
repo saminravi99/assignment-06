@@ -31,6 +31,49 @@
     font-weight: 700;
 }
 
+.card-info{
+    height: auto;
+    background-color: rgb(252, 237, 206);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner-card{
+    display: flex;;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(252, 237, 206);
+    width: 100%;
+}
+/* .left{
+    width: 50%;
+}
+.right{
+    width: 50%;
+} */
+.right > h1{
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-weight: 700;
+} 
+.right > h5{
+    font-family: "Helvetica Neue", sans-serif;
+    font-weight: 700;
+} 
+.right > div > h4{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 700;
+} 
+.right > div > p{
+    font-family: Montserrat, "Helvetica Neue", sans-serif;
+    font-weight: 700;
+} 
+
+.detail-image{
+    width: 400px;
+}
+
+
 
 /* .second-search{
     display: block;
