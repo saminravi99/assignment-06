@@ -115,7 +115,7 @@ const displayResult = (data) => {
         const noResultDiv = document.getElementById('no-result-div');
         noResultDiv.classList.add("no-result-div");
         noResultDiv.classList.remove("d-none");
-        document.getElementById('no-result').innerText = 'No result found HAHA';
+        document.getElementById('no-result').innerText = 'No result found';
     }else{
         document.getElementById('no-result-div').classList.add("d-none");
     }

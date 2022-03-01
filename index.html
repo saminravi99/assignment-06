@@ -25,89 +25,99 @@
     
 </head>
 <body class="body">
+    
+    <!-- Header Section Starts-->
+    
     <header id="header">
+
+        <!-- Main Search Box   -->
+
         <div class="search-div d-flex flex-column justify-content-center align-items-center" id="search-div">
+
+             <!-- First Logo Image   -->
+
             <img class="img-fluid  w-50" id="main-logo"  src="./img/Capture.PNG" alt="">
            
+
+            <!-- First Input Field with Search Button   -->
+
             <div class="w-50 d-flex flex-lg-row flex-column mt-lg-0 mt-3" id="input-box" >
                         <input id="search-input" class="form-control rounded-pill" type="search" placeholder="Search" aria-label="Search">
                         <button onclick="searchResult()" id="search-btn" class="btn btn-outline-dark ms-2 mt-lg-0 mt-3 rounded-pill px-4" type="button"><i class="fas fa-search"></i></button>
             </div>
-
+            <!-- First Spinner Starts    -->
             <div class="spinner-border d-none" id="spinner" role="status">
                 <span class="visually-hidden">Loading...</span>
             </div>
-        </div>
+            <!-- First Spinner Ends    -->
 
-        
+        </div>
     </header>
 
+    <!-- Header Section Ends-->
 
-
+    <!-- Main Section Starts-->
     <main id="main" class="d-none">
+
+        <!-- Secondary Search Box    -->
          <section>
+             <!-- Second Logo Image   -->
             <div class="d-flex  justify-content-around align-items-center d-none" id="second-search">
                     <img class="img-fluid  w-25" id="main-logo2" src="./img/Capture.PNG" alt="">
             
+                <!-- Second Input Field with Search Button   -->
                 <div class="w-50 d-flex flex-lg-row flex-column mt-lg-0 mt-3"  id="input-box2">
                             <input id="second-search-input" class="form-control rounded-pill" type="search" placeholder="Search" aria-label="Search">
                             <button onclick="secondSearchResult()" id="search-btn-2" class="btn btn-outline-dark ms-2 mt-lg-0 mt-3 rounded-pill px-4" type="button"><i class="fas fa-search"></i></button>
                 </div>
 
-               
-                
             </div>
-
+        <!-- Second Spinner  Starts   -->
              <div class="spinner2 d-none" id="spinner2">
                 <div class="spinner-border "  role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
              </div>
+        <!-- Second Spinner  Ends   -->
 
+        <!-- Error Handle For No Result Starts   -->
             <div class="d-flex justify-content-center align-items-center d-none" id="no-result-div">
                     <h1 id="no-result"></h1>
             </div>
-            <div class="container row row-cols-1 row-cols-md-3 g-3 mx-auto" id="card-grid">
+        <!-- Error Handle For No Result Ends   -->
+
+        <!-- Search Result Section Starts   -->
+            <div class="container row row-cols-1 row-cols-md-3 g-3 mx-auto mt-lg-0 mt-4" id="card-grid">
 
             </div>
+        <!--Search Result Section Ends   -->
          </section>
-
+        <!-- Smartphones Details Section Starts   -->
          <section class="mt-5">
             <div id="card-info" class="container row mx-auto">
            
             </div>
+
+            <!-- Third Spinner Starts   -->
             <div class="spinner3 d-none" id="spinner3">
                 <div class="spinner-border "  role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
              </div>
-         </section>
+            <!-- Third Spinner Ends   -->
 
-         <section>
-             
          </section>
-       
- 
+        <!-- Smartphones Details Section Ends   -->
+
     </main>
 
+    <!-- Main Section Ends-->
    
-
-
-
-    <footer>
-
-    </footer>
-
-
-
-
 
     <!-- BootStrap Script File  -->
     <script src="./js/bootstrap.bundle.min.js"></script>
 
     <!-- Local Script File  -->
     <script src="./js/script.js"></script>
-
-    
 </body>
 </html>
