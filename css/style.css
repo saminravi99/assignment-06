@@ -2,6 +2,7 @@
     background-color: rgb(252, 237, 206);
     color: rgba(63, 48, 48, 0.993);
     overflow-x: hidden;
+    overflow-y: scroll;
 }
 .search-div{
     height: 100vh;
@@ -18,6 +19,12 @@
 }
 
 .spinner2{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.spinner3{
     height: 80vh;
     display: flex;
     justify-content: center;

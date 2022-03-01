@@ -31,11 +31,12 @@ const searchResult = () => {
 const secondSearchResult = () => {
     // document.getElementById('no-result-div').classList.remove("no-result-div");
     //  document.getElementById('no-result-div').innerHTML = '';
-    // document.getElementById('no-result').innerText = '';
+    document.getElementById('no-result').innerText = '';
     
     const spinner2 = document.getElementById('spinner2');
     spinner2.classList.remove("d-none");
     document.getElementById('card-grid').innerHTML = '';
+    document.getElementById('card-info').classList.add("d-none");
     
     setTimeout(() => {
        
@@ -162,10 +163,20 @@ const displayMoreResult = (data) => {
 // Click Handler for Showing Details of Phone
 
 const displayDetails = (slug) => {
-    const url = `https://openapi.programming-hero.com/api/phone/${slug}`;
+    const cardGrid = document.getElementById('card-grid');
+    cardGrid.innerHTML = '';
+    document.getElementById('spinner3').classList.remove("d-none");
+    document.getElementById('card-info').innerHTML = '';
+
+    setTimeout(() => {
+        const url = `https://openapi.programming-hero.com/api/phone/${slug}`;
     fetch(url)
         .then(response => response.json())
         .then(data => displayDetailResult(data.data));
+    document.getElementById('spinner3').classList.add("d-none");
+    }, 1000);
+    
+    
 }
 
 // Callback Function for Showing Details of Phone
@@ -175,6 +186,7 @@ const displayDetailResult = (data) => {
     cardGrid.innerHTML = '';
     const cardInfo = document.getElementById('card-info');
     cardInfo.classList.add("card-info");
+    cardInfo.classList.remove("d-none");
 
     const card = document.createElement('div');
     card.classList.add("row");
