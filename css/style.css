@@ -73,9 +73,10 @@
     font-weight: 700;
 } 
 
-/* .detail-image{
-    width: 400px;
-} */
+.detail-img{
+    width: 320px;
+    height: 400px;
+}
 
 
 

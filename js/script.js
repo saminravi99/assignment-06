@@ -79,8 +79,8 @@ const displayDetailResult = (data) => {
 
 
     card.innerHTML = `
-             <div class="left col-lg-6 col-12 d-flex justify-content-center">
-                <img src="${data.image}" alt="">
+             <div class="left col-lg-6 col-12 d-flex justify-content-center align-items-center">
+                <img class="detail-img" src="${data.image}" alt="">
             </div>
             <div class="right col-lg-6 col-12  mt-lg-0 mt-4">
                 <h1 id="phone-name">${data.name}</h1>
