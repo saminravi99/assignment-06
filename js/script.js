@@ -28,6 +28,7 @@ const displayResult = (data) => {
                     <div onclick="displayDetails('${phone.slug}')" class="card-body  d-flex flex-column align-items-center justify-content-center border-0 ">
                         <img src="${phone.image}" class="card-img-top w-25" alt="...">
                         <h4 class="card-title mt-3 d-flex align-items-center ">${phone.phone_name}</h4>
+                        <p class="phone-brand">Brand : ${phone.brand}</p>
                     </div>
                 </div>
             </div>

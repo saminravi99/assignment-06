@@ -38,6 +38,11 @@
     align-items: center;
 }
 
+.phone-brand{
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-weight: 700;
+}
+
 /* .inner-card{
     display: flex;;
     justify-content: space-around;
