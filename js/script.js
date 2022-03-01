@@ -1,3 +1,5 @@
+//Click Handler For First Search Box
+
 const searchResult = () => {
     const searchInput = document.getElementById('search-input').value;
     const url = `https://openapi.programming-hero.com/api/phones?search=${searchInput}`;
@@ -12,6 +14,28 @@ const searchResult = () => {
     secondSearch.classList.add("search-div2");
 
 }
+
+
+
+// Click Handler for second search box
+
+const secondSearchResult = () => {
+    document.getElementById('no-result-div').classList.remove("no-result-div");
+    document.getElementById('no-result').innerText = '';
+    const searchInput = document.getElementById('second-search-input').value;
+    const url = `https://openapi.programming-hero.com/api/phones?search=${searchInput}`;
+    fetch(url)
+        .then(response => response.json())
+        .then(data => displayResult(data.data));
+    document.getElementById('header').innerHTML = '';
+    const main = document.getElementById("main");
+    main.classList.add("search-div2");
+    document.getElementById('card-clear').innerHTML = '';
+    document.getElementById('card-info').innerHTML = '';
+
+}
+
+// Callback Function for both search box
 
 const displayResult = (data) => {
     
@@ -42,6 +66,8 @@ const displayResult = (data) => {
         `
         cardGrid.appendChild(card);
     }
+
+// Error handling for No Results 
      if(data.length === 0){
         const noResultDiv = document.getElementById('no-result-div');
         noResultDiv.classList.add("no-result-div");
@@ -49,21 +75,7 @@ const displayResult = (data) => {
     }
 }
 
-const secondSearchResult = () => {
-    document.getElementById('no-result-div').classList.remove("no-result-div");
-    document.getElementById('no-result').innerText = '';
-    const searchInput = document.getElementById('second-search-input').value;
-    const url = `https://openapi.programming-hero.com/api/phones?search=${searchInput}`;
-    fetch(url)
-        .then(response => response.json())
-        .then(data => displayResult(data.data));
-    document.getElementById('header').innerHTML = '';
-    const main = document.getElementById("main");
-    main.classList.add("search-div2");
-    document.getElementById('card-clear').innerHTML = '';
-    document.getElementById('card-info').innerHTML = '';
-
-}
+// Click Handler for Showing Details of Phone
 
 const displayDetails = (slug) => {
     const url = `https://openapi.programming-hero.com/api/phone/${slug}`;
@@ -71,6 +83,8 @@ const displayDetails = (slug) => {
         .then(response => response.json())
         .then(data => displayDetailResult(data.data));
 }
+
+// Callback Function for Showing Details of Phone
 
 const displayDetailResult = (data) => {
      const cardGrid = document.getElementById('card-grid');
@@ -115,13 +129,15 @@ const displayDetailResult = (data) => {
     cardInfo.appendChild(card);
     const releaseDate = `${data.releaseDate}`;
     const other = `${data.others}`
+
+ // Error Handling For Release Date Property   
     if(releaseDate.length === 0) {
         document.getElementById('release-date').innerText = 'Release date not available';
     }else{
         document.getElementById('release-date').innerText = `Release date : ${data.releaseDate}`;
     }
 
-
+// Error Handling For Others properties
     if(other === "undefined") {
         document.getElementById('Others').innerText = '';
         document.getElementById('WLAN').innerText = '';
