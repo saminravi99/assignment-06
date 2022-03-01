@@ -14,7 +14,6 @@
     background-color: rgb(252, 237, 206);
 }
 .search-div2{
-    /* height: 100%; */
     background-color: rgb(252, 237, 206);
 }
 
@@ -35,9 +34,6 @@
     font-family: Roboto, "Helvetica Neue", sans-serif;
     font-weight: 700;
 }
-/* .col{
-    width: 300px;
-} */
 
 .card-body{
     background-color: none;
@@ -72,19 +68,6 @@
     cursor: pointer;
 }
 
-/* .inner-card{
-    display: flex;;
-    justify-content: space-around;
-    align-items: center;
-    background-color: rgb(252, 237, 206);
-    width: 100%;
-} */
-/* .left{
-    width: 50%;
-}
-.right{
-    width: 50%;
-} */
 .right > h1{
     font-family: Roboto, "Helvetica Neue", sans-serif;
     font-weight: 700;
@@ -106,19 +89,3 @@
     width: 320px;
     height: 400px;
 }
-
-
-
-/* .second-search{
-    display: block;
-} */
-/* .logo-img {
-    height: 400px;
-} */
-/* .logo-img > img{
-   width: 500px;
-    height: 500px;
-} */
-/* .form-control{
-   border-radius: 100px;
-} */
