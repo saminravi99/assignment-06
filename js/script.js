@@ -12,6 +12,7 @@ const searchResult = () => {
     const secondSearch = document.getElementById('second-search');
     secondSearch.classList.remove("d-none");
     secondSearch.classList.add("search-div2");
+    document.getElementById('second-search-input').value = `${searchInput}`;
 
 }
 
@@ -53,7 +54,7 @@ const displayResult = (data) => {
     for(const phone of myArray2) {
         const card = document.createElement('div');
         card.innerHTML = `
-          <div class="col container mx-auto">
+           <div class="col container mx-auto">
                 <div class="card ">
                     <div  class="card-body  d-flex flex-column align-items-center justify-content-center border-0 ">
                         <img src="${phone.image}" class="card-img-top w-25" alt="...">
@@ -62,9 +63,21 @@ const displayResult = (data) => {
                         <button class="btn btn-primary" onclick="displayDetails('${phone.slug}')">Explore</button>
                     </div>
                 </div>
-            </div>
+           </div>
         `
         cardGrid.appendChild(card);
+    }
+
+    if(myArray.length > 20){
+        const showMore = document.createElement('div');
+        showMore.classList.add("d-flex");
+        showMore.classList.add("justify-content-center");
+        showMore.classList.add("align-items-center");
+
+        showMore.innerHTML = `
+                 <h3 class="text-center show-more" onclick="showMore()">Show More</h3>
+        `;    
+        cardGrid.appendChild(showMore);
     }
 
 // Error handling for No Results 
@@ -72,6 +85,43 @@ const displayResult = (data) => {
         const noResultDiv = document.getElementById('no-result-div');
         noResultDiv.classList.add("no-result-div");
         document.getElementById('no-result').innerText = 'No result found';
+    }
+}
+
+//Click Handler for showing more data
+const showMore = () => {
+    const searchInput = document.getElementById('second-search-input').value;
+    const url = `https://openapi.programming-hero.com/api/phones?search=${searchInput}`;
+    fetch(url)
+        .then(response => response.json())
+        .then(data => displayMoreResult(data.data));
+}
+
+const displayMoreResult = (data) => {
+     const cardGrid = document.getElementById('card-grid');
+    cardGrid.innerHTML = '';
+    const main = document.getElementById('main');
+    main.classList.remove("d-none");
+    const myArray = [];
+    for(const phone of data) {
+        myArray.push(phone);
+    }
+
+    for(const phone of myArray) {
+        const card = document.createElement('div');
+        card.innerHTML = `
+           <div class="col container mx-auto">
+                <div class="card ">
+                    <div  class="card-body  d-flex flex-column align-items-center justify-content-center border-0 ">
+                        <img src="${phone.image}" class="card-img-top w-25" alt="...">
+                        <h4 class="card-title mt-3 d-flex align-items-center ">${phone.phone_name}</h4>
+                        <p class="phone-brand">Brand : ${phone.brand}</p>
+                        <button class="btn btn-primary" onclick="displayDetails('${phone.slug}')">Explore</button>
+                    </div>
+                </div>
+           </div>
+        `
+        cardGrid.appendChild(card);
     }
 }
 

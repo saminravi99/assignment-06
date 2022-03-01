@@ -1,5 +1,6 @@
 .body{
     background-color: rgb(252, 237, 206);
+    color: rgba(63, 48, 48, 0.993);
 }
 .search-div{
     height: 100vh;
@@ -44,6 +45,16 @@
 .phone-brand{
     font-family: Roboto, "Helvetica Neue", sans-serif;
     font-weight: 700;
+}
+
+.show-more{
+    border: 2px solid rgb(216, 166, 2);
+    background-color: rgb(243, 208, 139);
+    border-radius: 5px;
+    padding: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 700;
+    cursor: pointer;
 }
 
 /* .inner-card{
