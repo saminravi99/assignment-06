@@ -47,15 +47,24 @@
     <main id="main" class="d-none">
          <section>
             <div class="d-flex  justify-content-around align-items-center d-none" id="second-search">
-                    <img class="img-fluid  w-25" src="./img/Capture.PNG" alt="">
+                    <img class="img-fluid  w-25" id="main-logo2" src="./img/Capture.PNG" alt="">
             
-                <div class="w-50 d-flex flex-lg-row flex-column mt-lg-0 mt-3" >
+                <div class="w-50 d-flex flex-lg-row flex-column mt-lg-0 mt-3"  id="input-box2">
                             <input id="second-search-input" class="form-control rounded-pill" type="search" placeholder="Search" aria-label="Search">
                             <button onclick="secondSearchResult()" id="search-btn-2" class="btn btn-outline-dark ms-2 mt-lg-0 mt-3 rounded-pill px-4" type="button"><i class="fas fa-search"></i></button>
                 </div>
+
+               
                 
             </div>
-            <div class="d-flex justify-content-center align-items-center " id="no-result-div">
+
+             <div class="spinner2 d-none" id="spinner2">
+                <div class="spinner-border "  role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+             </div>
+
+            <div class="d-flex justify-content-center align-items-center d-none" id="no-result-div">
                     <h1 id="no-result"></h1>
             </div>
             <div class="container row row-cols-1 row-cols-md-3 g-3 mx-auto" id="card-grid">

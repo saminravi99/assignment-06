@@ -17,6 +17,13 @@
     background-color: rgb(252, 237, 206);
 }
 
+.spinner2{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #no-result{
     font-family: Roboto, "Helvetica Neue", sans-serif;
     font-weight: 700;

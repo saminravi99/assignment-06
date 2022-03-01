@@ -29,19 +29,39 @@ const searchResult = () => {
 // Click Handler for second search box
 
 const secondSearchResult = () => {
-    document.getElementById('no-result-div').classList.remove("no-result-div");
-    document.getElementById('no-result').innerText = '';
-    const searchInput = document.getElementById('second-search-input').value;
-    const url = `https://openapi.programming-hero.com/api/phones?search=${searchInput}`;
-    fetch(url)
+    // document.getElementById('no-result-div').classList.remove("no-result-div");
+    //  document.getElementById('no-result-div').innerHTML = '';
+    // document.getElementById('no-result').innerText = '';
+    
+    const spinner2 = document.getElementById('spinner2');
+    spinner2.classList.remove("d-none");
+    document.getElementById('card-grid').innerHTML = '';
+    
+    setTimeout(() => {
+       
+        spinner2.classList.remove("d-block");
+        spinner2.classList.add("d-none");
+        const main = document.getElementById("main");
+        main.classList.add("search-div2");
+        document.getElementById('card-info').innerHTML = '';
+        document.getElementById('header').innerHTML = '';
+        const searchInput = document.getElementById('second-search-input').value;
+        const url = `https://openapi.programming-hero.com/api/phones?search=${searchInput}`;
+        fetch(url)
         .then(response => response.json())
         .then(data => displayResult(data.data));
-    document.getElementById('header').innerHTML = '';
-    const main = document.getElementById("main");
-    main.classList.add("search-div2");
-    // document.getElementById('card-clear').innerHTML = '';
-    document.getElementById('card-info').innerHTML = '';
 
+        // if(data.data.length === 0) {
+        //     document.getElementById('no-result-div').classList.add("no-result-div");
+        //     document.getElementById('no-result').innerText = 'No Result Found HAHA';
+        // }
+        // if(data.data.length !== 0){
+        //      document.getElementById('no-result-div').innerHTML = '';          
+        // }
+    }, 1000);
+
+    
+    
 }
 
 // Callback Function for both search box
@@ -87,12 +107,16 @@ const displayResult = (data) => {
         `;    
         cardGrid.appendChild(showMore);
     }
+    console.log(data);
 
 // Error handling for No Results 
      if(data.length === 0){
         const noResultDiv = document.getElementById('no-result-div');
         noResultDiv.classList.add("no-result-div");
-        document.getElementById('no-result').innerText = 'No result found';
+        noResultDiv.classList.remove("d-none");
+        document.getElementById('no-result').innerText = 'No result found HAHA';
+    }else{
+        document.getElementById('no-result-div').classList.add("d-none");
     }
 }
 
