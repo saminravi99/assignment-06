@@ -1,0 +1,47 @@
+.search-div{
+ 
+    height: 100vh;
+    background-color: rgb(252, 237, 206);
+}
+.no-result-div{
+    width: 100vw;
+    height: 84.5vh;
+    background-color: rgb(252, 237, 206);
+}
+.search-div2{
+    /* height: 100%; */
+    background-color: rgb(252, 237, 206);
+}
+
+#no-result{
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-weight: 700;
+}
+/* .col{
+    width: 300px;
+} */
+
+.card-body{
+    background-color: none;
+
+}
+
+.card-title{
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    font-weight: 700;
+}
+
+
+/* .second-search{
+    display: block;
+} */
+/* .logo-img {
+    height: 400px;
+} */
+/* .logo-img > img{
+   width: 500px;
+    height: 500px;
+} */
+/* .form-control{
+   border-radius: 100px;
+} */
